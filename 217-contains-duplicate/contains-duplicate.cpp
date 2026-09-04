@@ -1,11 +1,7 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        std::set<int> seen;
-
-        for(int num : nums){
-            seen.insert(num);
-        }
+        std::set<int> seen(nums.begin(), nums.end());
 
         if(seen.size() != nums.size()){
             return true;
