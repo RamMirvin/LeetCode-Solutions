@@ -1,21 +1,19 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        int n = s.size();
-        unordered_map<int, int> mpp1;
-        unordered_map<int, int> mpp2;
-
-        if(n != t.size()){
+        if(s.size() != t.size()){
             return false;
         }
 
-        for(int i = 0; i < n; i++){
-            mpp1[s[i] - 'a']++;
-            mpp2[t[i] - 'a']++;
+        int count[26] = {0};
+
+        for(int i = 0; i < s.size(); i++){
+            count[s[i] - 'a']++;
+            count[t[i] - 'a']--;
         }
 
         for(int j = 0; j < 26; j++){
-            if(mpp1[j] != mpp2[j]){
+            if(count[j] !=0){
                 return false;
             }
         }
