@@ -1,14 +1,12 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        set<int> num = {nums.begin(), nums.end()};
+        int result = 0;
 
-        for(int i : num){
-            if(num.count(i) == count(nums.begin(), nums.end(), i)){
-                return i;
-            }
+        for(int i : nums){
+            result ^= i;
         }
 
-        return 1;
+        return result;
     }
 };
