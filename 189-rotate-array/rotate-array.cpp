@@ -1,16 +1,13 @@
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-        deque<int> num;
-        num.assign(nums.begin(), nums.end());
+        int n = nums.size();
+        if (n == 0) return;
 
-        for(int i = 0; i < k; i++){
-            num.push_front(num[num.size() - 1]);
-            num.pop_back();
-        }
+        k = k % n;
 
-        nums.assign(num.begin(), num.end());
-
-        return;
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin()+k);
+        reverse(nums.begin() + k, nums.end());
     }
 };
