@@ -14,7 +14,7 @@ public:
         }
         
         erase(nums, 0);
-        nums.insert(nums.end(), c, 0);
+        nums.resize(nums.size() + c);
 
         for(auto &it : nums){
             cout << it << " ";
